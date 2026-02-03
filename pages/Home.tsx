@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECTS } from '../const';
 
+import Spotlight from '@/components/Spotlight';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -85,6 +86,9 @@ const Home: React.FC = () => {
                     <ArrowDown size={32} strokeWidth={1} className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
             </section>
+
+            {/* SPOTLIGHT 2025 SECTION */}
+            <Spotlight />
 
             {/* FILM REEL HORIZONTAL SECTION - GSAP Powered */}
             <section ref={scrollSectionRef} className="relative bg-[#0a0a0a] overflow-hidden">

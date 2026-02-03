@@ -1,6 +1,64 @@
 import { Project } from '../types';
 
+// Note: Projects are ordered from most recent to oldest (2025 first)
 export const PROJECTS: Project[] = [
+    // ==================== 2025 PROJECTS (SPOTLIGHT) ====================
+    {
+        id: 'changement-detat',
+        title: "Changement d'état",
+        subtitle: 'Installation immersive',
+        category: 'Installation / Textile',
+        year: '2025',
+        location: 'Paris',
+        imageUrl: 'https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&q=80&w=1200',
+        galleryImages: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800'],
+        description: 'Installation immersive de 3 × 3 mètres.',
+        technicalData: "Photographie analogique 35 mm, collage, textiles teints à l'oignon et broderie à la main.",
+    },
+    {
+        id: 'la-tisseuse',
+        title: 'La Tisseuse',
+        subtitle: 'Installation collective',
+        category: 'Installation / Textile',
+        year: '2025',
+        location: 'Paris',
+        imageUrl: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1200',
+        galleryImages: [
+            'https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?auto=format&fit=crop&q=80&w=800',
+            'https://images.unsplash.com/photo-1594631661960-34bc47d23b93?auto=format&fit=crop&q=80&w=800',
+        ],
+        description: "Installation collective explorant la douleur féminine et l'usage du textile comme acte de résilience.",
+        technicalData:
+            'Fils de laine et de coton teints à la main, fils métalliques crochetés, sculpture, dentelle aux fuseaux, photographie argentique 35 mm sur mousseline de soie.',
+    },
+    {
+        id: 'residencia-ny20',
+        title: 'Résidence NY20+',
+        subtitle: 'Chengdu, Sichuan, Chine',
+        category: 'Residency / Installation',
+        year: '2025',
+        location: 'Chengdu, China',
+        imageUrl: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&q=80&w=1200',
+        galleryImages: ['https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&q=80&w=800'],
+        description: "Résidence internationale soutenue par Nongyuan Culture, dédiée à la promotion artistique et à l'échange culturel.",
+        technicalData: 'Photographie analogique 35 mm, collage, et broderie.',
+    },
+    // ==================== HIGH PRIORITY: AU MILIEU DE MURS FRAGILES ====================
+    {
+        id: 'murs-fragiles',
+        title: 'Au Milieu de Murs Fragiles',
+        subtitle: 'Projet en étapes',
+        category: 'Installation / Public Intervention',
+        year: '2021–2025',
+        location: 'Paris / Public Space',
+        imageUrl: 'https://images.unsplash.com/photo-1504198458649-3128b932f49e?auto=format&fit=crop&q=80&w=1200',
+        galleryImages: ['https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=800'],
+        description: 'Projet en étapes articulant mémoire, territoire et héritage.',
+        technicalData: 'Tente: 130 × 210 × 107 cm. Texte brodé à la main, photographie argentique 35 mm.',
+        // Special flag for multi-stage project with poem
+        conceptNote: 'MULTI_STAGE_PROJECT',
+    },
+    // ==================== EXISTING PROJECTS ====================
     {
         id: 'volver-al-gesto',
         title: 'Volver al Gesto',
@@ -114,3 +172,6 @@ export const PROJECTS: Project[] = [
         technicalData: 'Experimental printing.',
     },
 ];
+
+// Helper to get 2025 spotlight projects
+export const SPOTLIGHT_PROJECTS = PROJECTS.filter((p) => p.year === '2025' || p.year === '2021–2025');
