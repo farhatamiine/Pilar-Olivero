@@ -141,7 +141,7 @@ const FragmentedRealitiesHero: React.FC<FragmentedRealitiesHeroProps> = ({ class
         >
             {/* Base background layer - ensures no black shows */}
             <div
-                className="absolute inset-0 bg-cover bg-center grayscale"
+                className="absolute inset-0 bg-center bg-cover grayscale"
                 style={{
                     backgroundImage: `url(${REALITY_IMAGES[0]})`,
                     transform: 'scale(1.05)', // Slight overscale to prevent edge gaps
@@ -186,7 +186,7 @@ const FragmentedRealitiesHero: React.FC<FragmentedRealitiesHeroProps> = ({ class
 
                             {/* Subtle glass reflection */}
                             <div
-                                className="absolute inset-0 opacity-10 pointer-events-none"
+                                className="absolute inset-0 pointer-events-none opacity-10"
                                 style={{
                                     background: `linear-gradient(${120 + index * 30}deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%)`,
                                 }}
@@ -197,7 +197,7 @@ const FragmentedRealitiesHero: React.FC<FragmentedRealitiesHeroProps> = ({ class
 
                 {/* Crack lines SVG overlay - simplified for performance */}
                 <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                    className="absolute inset-0 z-20 w-full h-full pointer-events-none"
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
                     style={{ transform: 'translateZ(0)' }}
@@ -219,20 +219,28 @@ const FragmentedRealitiesHero: React.FC<FragmentedRealitiesHeroProps> = ({ class
                 />
             </div>
 
+            {/* Dark vignette overlay for text readability */}
+            <div
+                className="absolute inset-0 pointer-events-none z-35"
+                style={{
+                    background: `radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, transparent 80%)`,
+                }}
+            />
+
             {/* Title overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-40 px-6">
+            <div className="absolute inset-0 z-40 flex flex-col items-center justify-center px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     className="text-center"
                 >
-                    <span className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] text-white/50 font-bold block mb-4">Archive v.04</span>
-                    <h1 className="font-serif text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white drop-shadow-2xl">
+                    <span className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] text-white/70 font-bold block mb-4">Archive v.04</span>
+                    <h1 className="font-serif text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
                         <span className="block">Fragmented</span>
-                        <span className="block italic text-white/60">Realities.</span>
+                        <span className="block italic text-white/80">Realities.</span>
                     </h1>
-                    <p className="mt-6 md:mt-8 text-sm md:text-base text-white/50 max-w-md mx-auto font-light">
+                    <p className="max-w-md mx-auto mt-6 text-sm font-light md:mt-8 md:text-base text-white/70">
                         Each of us lives a different life—separate worlds, connected by moments.
                     </p>
                 </motion.div>
@@ -240,14 +248,14 @@ const FragmentedRealitiesHero: React.FC<FragmentedRealitiesHeroProps> = ({ class
 
             {/* Scroll indicator */}
             <motion.div
-                className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-40"
+                className="absolute z-40 -translate-x-1/2 bottom-8 md:bottom-12 left-1/2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.4 }}
                 transition={{ delay: 1.5 }}
             >
-                <div className="w-6 h-10 rounded-full border border-white/40 flex justify-center">
+                <div className="flex justify-center w-6 h-10 border rounded-full border-white/40">
                     <motion.div
-                        className="w-1 h-2 bg-white/60 rounded-full mt-2"
+                        className="w-1 h-2 mt-2 rounded-full bg-white/60"
                         animate={{ y: [0, 12, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
                     />
