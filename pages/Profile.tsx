@@ -1,14 +1,17 @@
+import { motion } from 'framer-motion';
 import { BookOpen, Mic2 } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Footer from '../components/Footer';
 
-const AboutPage: React.FC = () => {
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
+const Profile: React.FC = () => {
     return (
-        <div className={`min-h-screen bg-[#FAF9F6] text-[#1A1A1A] transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+        <motion.div
+            className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
             {/* 1. Artist Hero */}
             <section className="relative min-h-screen flex flex-col lg:flex-row items-center overflow-hidden px-6 md:px-12 pt-24 md:pt-32 pb-16 md:pb-24">
                 <div className="absolute top-1/2 left-0 -translate-y-1/2 -rotate-90 origin-left pointer-events-none opacity-[0.03] select-none">
@@ -120,7 +123,7 @@ const AboutPage: React.FC = () => {
                     <div className="lg:col-span-4 flex flex-col gap-12">
                         <div className="bg-[#f4f3f0] p-8 md:p-12 space-y-8 md:space-y-10 border border-neutral-100">
                             <div className="flex items-center gap-4">
-                                <BookOpen size={18} md:size={20} className="text-neutral-400" />
+                                <BookOpen size={20} className="text-neutral-400 w-[18px] h-[18px] md:w-5 md:h-5" />
                                 <span className="text-[10px] uppercase font-bold tracking-widest">Publicaciones</span>
                             </div>
                             <div className="space-y-6">
@@ -141,7 +144,7 @@ const AboutPage: React.FC = () => {
 
                         <div className="bg-white p-8 md:p-12 space-y-6 md:space-y-8 border border-neutral-100">
                             <div className="flex items-center gap-4">
-                                <Mic2 size={18} md:size={20} className="text-neutral-400" />
+                                <Mic2 size={20} className="text-neutral-400 w-[18px] h-[18px] md:w-5 md:h-5" />
                                 <span className="text-[10px] uppercase font-bold tracking-widest">Disertaciones</span>
                             </div>
                             <div className="space-y-4 md:space-y-6">
@@ -156,8 +159,9 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
             </section>
-        </div>
+            <Footer />
+        </motion.div>
     );
 };
 
-export default AboutPage;
+export default Profile;
