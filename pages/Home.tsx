@@ -3,6 +3,7 @@ import { ArrowDown } from 'lucide-react';
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import FragmentedText from '../components/FragmentedText';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECTS } from '../const';
 
@@ -73,14 +74,7 @@ const Home: React.FC = () => {
                     <div className="h-[1px] w-12 md:w-24 bg-neutral-900 hero-text-line" />
                 </div>
                 <div className="max-w-[1400px] mx-auto w-full">
-                    <h1 className="font-serif text-[clamp(2.5rem,14vw,12rem)] leading-[0.9] md:leading-[0.8] tracking-tighter">
-                        <div className="overflow-hidden">
-                            <span className="block hero-text-line">Fragmented</span>
-                        </div>
-                        <div className="overflow-hidden">
-                            <span className="block italic hero-text-line text-neutral-400">Realities.</span>
-                        </div>
-                    </h1>
+                    <FragmentedText className="font-serif text-[clamp(2.5rem,14vw,12rem)] leading-[0.9] md:leading-[0.8] tracking-tighter" />
                 </div>
                 <div className="absolute -translate-x-1/2 bottom-8 md:bottom-12 left-1/2 animate-bounce opacity-20">
                     <ArrowDown size={32} strokeWidth={1} className="w-6 h-6 md:w-8 md:h-8" />
