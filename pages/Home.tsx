@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import FragmentedText from '../components/FragmentedText';
+import FragmentedRealitiesHero from '../components/FragmentedRealitiesHero';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECTS } from '../const';
 
@@ -67,19 +66,8 @@ const Home: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-            {/* HERO SECTION */}
-            <section className="relative h-[90vh] flex flex-col justify-center px-6 md:px-12 border-b border-neutral-100 overflow-hidden">
-                <div className="absolute flex flex-col gap-2 top-24 md:top-32 left-6 md:left-12">
-                    <span className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] text-neutral-400 font-bold hero-text-line">Archive v.04</span>
-                    <div className="h-[1px] w-12 md:w-24 bg-neutral-900 hero-text-line" />
-                </div>
-                <div className="max-w-[1400px] mx-auto w-full">
-                    <FragmentedText className="font-serif text-[clamp(2.5rem,14vw,12rem)] leading-[0.9] md:leading-[0.8] tracking-tighter" />
-                </div>
-                <div className="absolute -translate-x-1/2 bottom-8 md:bottom-12 left-1/2 animate-bounce opacity-20">
-                    <ArrowDown size={32} strokeWidth={1} className="w-6 h-6 md:w-8 md:h-8" />
-                </div>
-            </section>
+            {/* HERO SECTION - Fragmented Realities */}
+            <FragmentedRealitiesHero />
 
             {/* SPOTLIGHT 2025 SECTION */}
             <Spotlight />
